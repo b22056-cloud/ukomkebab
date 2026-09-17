@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Registrasi - JWP UKOM</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="bg-light d-flex align-items-center py-5" style="min-height: 100vh;">
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                
+                <!-- KOTAK FORM LOGIN -->
+                <div class="card shadow-sm" id="loginBox">
+                    <div class="card-body p-4">
+                        <h3 class="text-center mb-4">Login Pengguna</h3>
+                        
+                        <form id="formLogin" onsubmit="handleLogin(event)">
+                            <div class="mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" name="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Password</label>
+                                <input type="password" class="form-control" name="password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Masuk</button>
+                        </form>
+
+                        <div class="text-center mt-4">
+                            <span class="text-muted">Belum punya akun?</span>
+                            <button type="button" class="btn btn-link p-0" onclick="toggleAuth()">Daftar di sini</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KOTAK FORM REGISTRASI -->
+                <div class="card shadow-sm" id="registerBox" style="display: none;">
+                    <div class="card-body p-4">
+                        <h3 class="text-center mb-4">Registrasi Akun</h3>
+                        
+                        <form id="formRegister" onsubmit="handleRegister(event)">
+                            <div class="mb-2">
+                                <input type="text" class="form-control" name="nama_depan" placeholder="Nama Depan" required>
+                            </div>
+                            <div class="mb-2">
+                                <input type="text" class="form-control" name="nama_belakang" placeholder="Nama Belakang">
+                            </div>
+                            <div class="mb-2">
+                                <input type="email" class="form-control" name="email" placeholder="Email (cth: anda@mail.com)" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="password" class="form-control" name="password" placeholder="Password" required>
+                            </div>
+                            <button type="submit" class="btn btn-success w-100">Daftar Sekarang</button>
+                        </form>
+
+                        <div class="text-center mt-4">
+                            <span class="text-muted">Sudah punya akun?</span>
+                            <button type="button" class="btn btn-link p-0" onclick="toggleAuth()">Login di sini</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="assets/app.js"></script>
+</body>
+</html>

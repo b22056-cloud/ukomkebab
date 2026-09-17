@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Kelola Produk Kebab - UKOM</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="bg-secondary bg-opacity-10" onload="muatDataProduk()">
+
+    <nav class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">Manajemen Katalog Produk Kebab</a>
+            <button class="btn btn-outline-light btn-sm" onclick="logout()">Logout</button>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">Form Input Produk</h5>
+                        <form id="formProduk" onsubmit="simpanProduk(event)">
+                            <input type="hidden" id="productId">
+                            <div class="mb-2">
+                                <label class="form-label">Nama Produk</label>
+                                <input type="text" class="form-control" id="nama_produk" required>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Harga Normal (Rp)</label>
+                                <input type="number" class="form-control" id="harga" min="0" required>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Harga Diskon (Opsional)</label>
+                                <input type="number" class="form-control" id="harga_diskon" min="0">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Jumlah Stok</label>
+                                <input type="number" class="form-control" id="jumlah_stok" min="0" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Simpan Data</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-3 gap-2">
+                            <h5 class="card-title m-0 w-100">Daftar Produk</h5>
+                            <select class="form-select w-auto" id="kriteriaFilter" onchange="jalankanFilter()">
+                                <option value="nama">Nama Produk</option>
+                                <option value="harga">Harga (Maksimal)</option>
+                                <option value="stok">Stok (Minimal)</option>
+                            </select>
+                            <input type="text" class="form-control w-50" id="inputCari" placeholder="Ketik pencarian..." onkeyup="jalankanFilter()">
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered align-middle">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Nama Produk</th>
+                                        <th>Harga</th>
+                                        <th>Diskon</th>
+                                        <th>Stok</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tabelProdukBody">
+                                    <!-- Data via JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+/* Import Font dari Google (Poppins) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    /* Memberikan warna background yang lebih modern */
+    background-color: #f8f9fa !important; 
+}
+
+/* Modifikasi Bayangan Card (Lebih Elegan) */
+.card.shadow-sm {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efek sedikit terangkat saat box login/register disorot */
+#loginBox:hover, #registerBox:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1) !important;
+}
+
+/* Styling Tabel agar lebih rapi */
+.table {
+    margin-bottom: 0;
+}
+
+.table th {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+/* Efek Transisi pada Button */
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+/* Custom Input Field */
+.form-control {
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    border-color: #dee2e6;
+}
+
+.form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+}
